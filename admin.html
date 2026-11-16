@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Registrations · AMC 2027 admin</title>
 <meta name="robots" content="noindex" />
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="css/site.css" />
+<link rel="icon" href="/assets/brand/logo-badge-96.png" type="image/svg+xml" />
+<link rel="stylesheet" href="/css/site.css" />
 </head>
 <body>
 <header class="nav is-stuck" id="nav" data-stuck="always" style="position:sticky">
   <div class="nav__inner">
-    <a class="brand" href="index.html">
-      <span class="brand__mark">G.M.T.</span>
-      <span class="brand__text"><strong>Global Manual Therapy</strong><span>Admin · Registrations</span></span>
+    <a class="brand" href="/">
+      <img class="brand__logo" src="/assets/brand/logo-badge-96.png" alt="" width="52" height="52" />
+      <span class="brand__text"><strong>Albanian Massage Championship</strong><span>Tirana 2027</span></span>
     </a>
     <div class="nav__actions" style="display:flex;gap:10px">
-      <a class="btn btn--ghost btn--sm" href="index.html">View site</a>
+      <a class="btn btn--ghost btn--sm" href="/">View site</a>
     </div>
   </div>
 </header>
@@ -26,7 +26,7 @@
     <div class="admin-bar">
       <div>
         <h1 style="font-size:1.5rem">Registrations</h1>
-        <p style="color:var(--muted);font-size:.86rem">Albanian Massage Championship 2027 · live from the booking database</p>
+        <p style="color:var(--muted);font-size:.86rem">Albanian Massage Championship · Tirana 2027 · live from the booking database</p>
       </div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
         <input class="input" id="token" type="password" placeholder="Admin token" style="width:200px;padding:10px 14px" />
@@ -62,8 +62,7 @@
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="js/static-api.js"></script>
-<script src="js/main.js" type="module"></script>
-<script src="js/admin.js" type="module"></script>
+<script src="/js/main.js" type="module"></script>
+<script src="/js/admin.js" type="module"></script>
 </body>
 </html>

@@ -309,11 +309,11 @@ function validateStep2() {
   if (!dob) fail('dateOfBirth', 'Enter your date of birth.');
   else {
     const d = new Date(`${dob}T00:00:00Z`);
-    const ref = new Date('2027-05-21T00:00:00Z');
+    const ref = new Date('2027-05-14T00:00:00Z');
     let age = ref.getUTCFullYear() - d.getUTCFullYear();
     const m = ref.getUTCMonth() - d.getUTCMonth();
     if (m < 0 || (m === 0 && ref.getUTCDate() < d.getUTCDate())) age -= 1;
-    if (age < 18) fail('dateOfBirth', 'You must be at least 18 on 21 May 2027.');
+    if (age < 18) fail('dateOfBirth', 'You must be at least 18 on 14 May 2027.');
   }
 
   if (!v('idType')) fail('idType', 'Select your ID document type.');

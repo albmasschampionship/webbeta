@@ -109,8 +109,8 @@ function render(record) {
 }
 
 function buildCalendar(record) {
-  const start = '20270521T070000Z'; // 09:00 Europe/Tirane (CEST, UTC+2)
-  const end = '20270523T210000Z';
+  const start = '20270514T070000Z'; // 09:00 Europe/Tirane (CEST, UTC+2)
+  const end = '20270516T210000Z';
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -120,7 +120,7 @@ function buildCalendar(record) {
     `DTSTAMP:${start}`,
     `DTSTART:${start}`,
     `DTEND:${end}`,
-    'SUMMARY:Albanian Massage Championship 2027',
+    'SUMMARY:Albanian Massage Championship — Tirana 2027',
     'LOCATION:Palace of Congresses\\, Bulevardi Dëshmorët e Kombit\\, Tirana\\, Albania',
     `DESCRIPTION:Pass: ${record.passName}\\nReference: ${record.ref}\\nCheck-in code: ${record.checkInCode || 'pending'}`,
     'END:VEVENT',

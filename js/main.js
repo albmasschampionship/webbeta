@@ -63,10 +63,10 @@ if (revealEls.length) {
   }
 }
 
-/* Countdown to the opening ceremony: 21 May 2027, 09:00 (Europe/Tirane) */
+
 const countdown = document.getElementById('countdown');
 if (countdown) {
-  const target = new Date('2027-05-21T09:00:00+02:00').getTime();
+  const target = new Date('2027-05-14T09:00:00+02:00').getTime();
   const fields = {
     days: countdown.querySelector('[data-cd="days"]'),
     hours: countdown.querySelector('[data-cd="hours"]'),
