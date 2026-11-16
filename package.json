@@ -1,0 +1,23 @@
+{
+  "name": "albanian-massage-championship-2027",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official ticketing & competitor registration site for the Albanian Massage Championship 2027 (Global Manual Therapy).",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "preview": "node scripts/preview.mjs"
+  },
+  "keywords": [
+    "massage",
+    "championship",
+    "albania",
+    "stripe",
+    "tickets"
+  ],
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Booking confirmed · Albanian Massage Championship 2027</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/brand/logo-badge-96.png" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1.5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 21h16"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.5 3 7.8 7.5 9 4.5-1.2 7.5-4.5 7.5-9V6L12 3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+</svg>
+
+<header class="nav is-stuck" id="nav" data-stuck="always">
+  <div class="nav__inner">
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="assets/brand/logo-badge-96.png" alt="" width="52" height="52" />
+      <span class="brand__text"><strong>Albanian Massage Championship</strong><span>Tirana 2027</span></span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#schedule">Schedule</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--grad btn--sm" href="book.html">Book another</a>
+    </div>
+  </div>
+</header>
+
+<main class="success-wrap">
+  <div class="container">
+    <div id="stateMsg" style="max-width:640px;margin:0 auto 28px;text-align:center">
+      <div class="panel status-card">
+        <div class="status-orb status-orb--pending"><svg width="30" height="30"><use href="#i-clock"/></svg></div>
+        <h2>Checking your booking…</h2>
+        <p>One moment while we confirm the payment with our payment provider.</p>
+      </div>
+    </div>
+
+    <div id="content" hidden>
+      <div class="success-grid">
+        <!-- ticket -->
+        <div>
+          <div class="ticket" id="ticket">
+            <div class="ticket__row">
+              <div>
+                <div class="ticket__brand">Global Manual Therapy</div>
+                <h2>Albania Massage<br />Championship 2027</h2>
+              </div>
+              <div class="ticket__stamp" id="stamp">Paid</div>
+            </div>
+
+            <div class="ticket__perf"></div>
+
+            <dl class="ticket__details">
+              <div><dt>Attendee</dt><dd id="tName">—</dd></div>
+              <div><dt>Pass</dt><dd id="tPass">—</dd></div>
+              <div><dt>Dates</dt><dd>14–16 May 2027</dd></div>
+              <div><dt>Venue</dt><dd>Palace of Congresses, Tirana</dd></div>
+              <div><dt>Reference</dt><dd id="tRef">—</dd></div>
+              <div><dt>Category</dt><dd id="tCat">—</dd></div>
+            </dl>
+
+            <div class="ticket__code">
+              <div><span>Check-in code</span><b id="tCode">—</b></div>
+              <div style="text-align:right"><span>Total paid</span><b id="tTotal" style="font-size:1.05rem">—</b></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap">
+            <button class="btn btn--dark btn--sm" id="printBtn" type="button"><svg width="15" height="15"><use href="#i-print"/></svg> Print / save PDF</button>
+            <button class="btn btn--ghost btn--sm" id="icsBtn" type="button"><svg width="15" height="15"><use href="#i-calendar"/></svg> Add to calendar</button>
+          </div>
+          <p style="font-size:.76rem;color:var(--muted);margin-top:12px">Show the check-in code (or this page) at the accreditation desk. Bring the ID document you registered with.</p>
+        </div>
+
+        <!-- side -->
+        <div>
+          <div class="panel status-card" style="padding:28px 24px">
+            <div class="status-orb"><svg width="32" height="32"><use href="#i-check"/></svg></div>
+            <h2 id="okTitle">You're in!</h2>
+            <p id="okText">A confirmation has been sent to your email address.</p>
+            <dl class="kv-list" id="kvList"></dl>
+            <a class="btn btn--grad btn--block" href="index.html">Back to the championship</a>
+          </div>
+
+          <div class="panel" style="margin-top:18px">
+            <h3 style="font-size:.95rem;margin-bottom:12px">What happens next</h3>
+            <ol style="display:grid;gap:12px;font-size:.85rem;color:var(--muted);padding-left:18px;list-style:decimal">
+              <li data-static-text="Your booking reference and ticket stay available on this page (preview build).">You receive a confirmation email with your booking reference and invoice.</li>
+              <li>Competitors: the committee reviews your file within 5 working days and sends your competition slot.</li>
+              <li>Two weeks before the event we publish the running order and your check-in time.</li>
+              <li>At the door: bring your ID and check-in code. That's it.</li>
+            </ol>
+          </div>
+
+          <div class="panel" style="margin-top:18px;display:flex;gap:10px;align-items:flex-start;font-size:.8rem;color:var(--muted)">
+            <svg width="16" height="16" style="flex:none;margin-top:3px;color:var(--violet)"><use href="#i-mail"/></svg>
+            <span>Something wrong? Reply to your confirmation email or write to
+              <a href="mailto:tickets@albanianmassagechampionship.com" style="color:var(--violet)">tickets@albanianmassagechampionship.com</a>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer" style="margin-top:0">
+  <div class="container footer__inner">
+    <div class="footer__bottom" style="border-bottom:0">
+      <span>© 2027 Global Manual Therapy. All rights reserved.</span>
+      <span style="display:flex;gap:18px"><a href="index.html">Home</a><a href="index.html#faq">FAQ</a><a href="book.html">Tickets</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="js/static-api.js"></script>
+<script src="js/main.js" type="module"></script>
+<script src="js/success.js" type="module"></script>
+</body>
+</html>
