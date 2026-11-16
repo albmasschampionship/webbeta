@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Book tickets · Albanian Massage Championship 2027</title>
 <meta name="description" content="Buy spectator passes or register as a competitor for the Albanian Massage Championship, 14–16 May 2027 in Tirana. Secure card payment via Stripe." />
-<link rel="icon" href="/assets/brand/logo-badge-96.png" type="image/svg+xml" />
-<link rel="stylesheet" href="/css/site.css" />
+<link rel="icon" href="assets/brand/logo-badge-96.png" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
 
@@ -29,35 +29,35 @@
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="brand" href="/">
-      <img class="brand__logo" src="/assets/brand/logo-badge-96.png" alt="" width="52" height="52" />
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="assets/brand/logo-badge-96.png" alt="" width="52" height="52" />
       <span class="brand__text"><strong>Albanian Massage Championship</strong><span>Tirana 2027</span></span>
     </a>
     <nav class="nav__links" aria-label="Main">
-      <a href="/">Home</a>
-      <a href="/#categories">Categories</a>
-      <a href="/#schedule">Schedule</a>
-      <a href="/#jury">Jury</a>
-      <a href="/#faq">FAQ</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#categories">Categories</a>
+      <a href="index.html#schedule">Schedule</a>
+      <a href="index.html#jury">Jury</a>
+      <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--grad btn--sm" href="/book" aria-current="page">Book tickets</a>
+      <a class="btn btn--grad btn--sm" href="book.html" aria-current="page">Book tickets</a>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
     </div>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/">Home</a>
-  <a href="/#categories">Categories</a>
-  <a href="/#schedule">Schedule</a>
-  <a href="/#tickets">Tickets</a>
-  <a href="/#faq">FAQ</a>
+  <a href="index.html">Home</a>
+  <a href="index.html#categories">Categories</a>
+  <a href="index.html#schedule">Schedule</a>
+  <a href="index.html#tickets">Tickets</a>
+  <a href="index.html#faq">FAQ</a>
 </div>
 
 <section class="page-head" style="padding-bottom:56px">
   <div class="container page-head__inner">
-    <div class="breadcrumb"><a href="/">Home</a> <span>/</span> <span>Booking</span></div>
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Booking</span></div>
     <h1>Tickets &amp; entry for <em>Tirana 2027</em></h1>
     <p>Book a spectator pass or apply to compete. One form, secure card payment, confirmation in your inbox.</p>
     <div style="display:flex;gap:26px;flex-wrap:wrap;margin-top:8px;color:rgba(255,255,255,.8);font-size:.88rem">
@@ -416,14 +416,15 @@
     <div class="footer__bottom" style="border-bottom:0">
       <span>© 2027 Global Manual Therapy. All rights reserved.</span>
       <span style="display:flex;gap:18px;flex-wrap:wrap">
-        <a href="/">Home</a><a href="#">Privacy policy</a><a href="#">Terms &amp; conditions</a>
+        <a href="index.html">Home</a><a href="#">Privacy policy</a><a href="#">Terms &amp; conditions</a>
       </span>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="/js/main.js" type="module"></script>
-<script src="/js/book.js" type="module"></script>
+<script type="module" src="js/static-api.js"></script>
+<script src="js/main.js" type="module"></script>
+<script src="js/book.js" type="module"></script>
 </body>
 </html>

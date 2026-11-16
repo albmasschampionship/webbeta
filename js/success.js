@@ -6,7 +6,7 @@ const params = new URLSearchParams(location.search);
 const ref = params.get('ref');
 const sessionId = params.get('session_id');
 const isDemoParam = params.get('demo') === '1';
-const isStatic = Boolean(window.AMC_STATIC);
+const isStatic = () => Boolean(window.AMC_STATIC);
 
 const $ = (sel) => document.querySelector(sel);
 const money = (cents, currency = 'EUR') =>
@@ -76,10 +76,10 @@ function render(record) {
 
   $('#okTitle').textContent = paid ? "You're in!" : 'Payment not completed';
   $('#okText').textContent = paid
-    ? isStatic
+    ? isStatic()
       ? 'Preview build: your registration is saved in this browser only — nothing was sent or charged.'
       : `A confirmation has been sent to ${record.customer.email}.`
-    : isStatic
+    : isStatic()
       ? 'This preview could not complete the simulated payment. Try the booking form again.'
       : 'Your reservation is on hold. Complete the payment to receive your check-in code.';
 
@@ -100,7 +100,7 @@ function render(record) {
     const cta = document.querySelector('.status-card .btn');
     if (cta) {
       cta.textContent = 'Retry payment';
-      cta.href = '/book' + (record.passId ? `?pass=${record.passId}` : '');
+      cta.href = 'book.html' + (record.passId ? `?pass=${record.passId}` : '');
     }
   }
 
@@ -147,7 +147,7 @@ $('#printBtn')?.addEventListener('click', () => window.print());
       tone: 'failed',
       title: 'No booking reference',
       text: 'This page needs a booking reference. If you have just paid, check your email for the confirmation link.',
-      actions: '<a class="btn btn--grad" href="/book">Go to booking</a>'
+      actions: '<a class="btn btn--grad" href="book.html">Go to booking</a>'
     });
     return;
   }
@@ -179,7 +179,7 @@ $('#printBtn')?.addEventListener('click', () => window.print());
         tone: 'failed',
         title: 'Payment was cancelled',
         text: 'Nothing has been charged. Your registration details are still saved in this browser — you can pick up where you left off.',
-        actions: '<a class="btn btn--grad" href="/book">Return to booking</a>'
+        actions: '<a class="btn btn--grad" href="book.html">Return to booking</a>'
       });
       return;
     }
@@ -190,7 +190,7 @@ $('#printBtn')?.addEventListener('click', () => window.print());
       tone: 'failed',
       title: 'We could not find that booking',
       text: err.message || 'Please check the link in your confirmation email.',
-      actions: '<a class="btn btn--grad" href="/book">Back to booking</a>'
+      actions: '<a class="btn btn--grad" href="book.html">Back to booking</a>'
     });
   }
 })();

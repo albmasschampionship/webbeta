@@ -7,9 +7,9 @@ export const EVENT = {
   year: 2027,
   edition: 'III',
   tagline: 'Three days of hands-on excellence',
-  start: '2027-05-21T09:00:00+02:00',
-  end: '2027-05-23T23:00:00+02:00',
-  datesLabel: '21 – 23 May 2027',
+  start: '2027-05-14T09:00:00+02:00',
+  end: '2027-05-16T23:00:00+02:00',
+  datesLabel: '14 – 16 May 2027',
   venue: 'Palace of Congresses (Pallati i Kongreseve)',
   city: 'Tirana',
   country: 'Albania',
@@ -101,7 +101,7 @@ export const PASSES = [
 export const EXTRAS = [
   { id: 'extra-category', name: 'Additional category', price: 4500, competitorOnly: true },
   { id: 'gala-guest', name: 'Gala dinner guest seat', price: 6900, competitorOnly: false },
-  { id: 'workshop', name: 'Pre-championship workshop (20 May)', price: 3500, competitorOnly: false }
+  { id: 'workshop', name: 'Pre-championship workshop (13 May)', price: 3500, competitorOnly: false }
 ];
 
 export const PROMO_CODES = [

@@ -6,7 +6,7 @@ const ID_RE = /^[A-Za-z0-9\-\/]{4,32}$/;
 const URL_RE = /^(https?:\/\/)?[\w.-]+\.[a-z]{2,}(\/\S*)?$/i;
 export const MIN_AGE = 18;
 
-const COMPETITION_START = new Date('2027-05-21T00:00:00+02:00');
+const COMPETITION_START = new Date('2027-05-14T00:00:00+02:00');
 
 export const ID_TYPES = ['passport', 'national-id', 'residence-permit', 'driving-licence'];
 export const PROFESSIONS = [
@@ -83,7 +83,7 @@ export function validateBooking(payload = {}) {
   const dateOfBirth = str(reg.dateOfBirth, 10);
   const age = /^\d{4}-\d{2}-\d{2}$/.test(dateOfBirth) ? ageOn(dateOfBirth) : null;
   if (age === null) errors.dateOfBirth = 'Enter your date of birth.';
-  else if (age < MIN_AGE) errors.dateOfBirth = `You must be at least ${MIN_AGE} on 21 May 2027.`;
+  else if (age < MIN_AGE) errors.dateOfBirth = `You must be at least ${MIN_AGE} on 14 May 2027.`;
   else if (age > 100) errors.dateOfBirth = 'Please check your date of birth.';
 
   const idType = str(reg.idType, 24);

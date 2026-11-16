@@ -1,9 +1,13 @@
 /* ---------------------------------------------------------------------------
- * Static build shim (GitHub Pages).
+ * Static-hosting fallback (GitHub Pages, Netlify, any file server).
  *
- * GitHub Pages only serves files — there is no Node process, so /api/* does not
- * exist there. This module installs a browser-side implementation of the same
- * API surface the page scripts already use:
+ * The site can be served two ways:
+ *   • by the Node server in this repo  → /api/* answers normally
+ *   • as plain files on GitHub Pages   → there is no /api at all
+ *
+ * This module installs a fetch wrapper that tries the real endpoint first and
+ * only falls back to the browser-side implementation when nothing answers, so
+ * one HTML folder works in both places. The fallback covers:
  *
  *   GET  /api/config                 → catalog from lib/catalog.js
  *   GET  /api/quote                  → same pricing logic as the server
@@ -13,12 +17,13 @@
  *   GET  /api/admin/registrations    → list + stats for this browser
  *   GET  /api/admin/export.csv       → CSV of this browser's registrations
  *
- * Everything is computed with the real modules from /lib, so prices, promo
- * codes and validation rules cannot drift from the Node server.
+ * Everything is computed with the same modules the server uses
+ * (js/lib/catalog.js, js/lib/validate.js, js/lib/config.js), so prices, promo
+ * codes and validation rules cannot drift.
  *
- * Limits, by design: registrations live in localStorage of the visitor's
- * browser and payments are simulated. For real Stripe payments deploy the
- * included Node server (see README) — the static build is the showcase.
+ * Limits, by design: on static hosting registrations live in localStorage of
+ * the visitor's browser and payments are simulated. For real Stripe payments
+ * deploy the included Node server (see README).
  * ------------------------------------------------------------------------ */
 
 import { EVENT, formatMoney, quote } from './lib/catalog.js';
@@ -29,7 +34,7 @@ const STORE_KEY = 'amc27-registrations';
 const ADMIN_TOKEN = 'gmt-admin-2027';
 const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
-window.AMC_STATIC = true;
+let staticMode = false;
 
 /* ------------------------------------------------------------------ helpers */
 function json(data, status = 200) {
@@ -274,7 +279,33 @@ async function handleApi(url, init) {
 /* -------------------------------------------------------------- interception */
 const nativeFetch = window.fetch.bind(window);
 
-window.fetch = (input, init) => {
+/* Turn on the static behaviour the first time a real endpoint is missing. */
+function enterStaticMode() {
+  if (staticMode) return;
+  staticMode = true;
+  window.AMC_STATIC = true;
+
+  const apply = () => {
+    const banner = document.getElementById('demoBanner');
+    if (banner) {
+      banner.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <div><b>Preview build (static hosting).</b> Card payment is simulated and your registration is
+      stored in this browser only, never sent anywhere. The full version with live Stripe checkout runs
+      on the Node server included in the repository.</div>`;
+    }
+    document.querySelectorAll('[data-static-text]').forEach((el) => {
+      el.textContent = el.dataset.staticText;
+    });
+    const status = document.getElementById('summaryStatus');
+    if (status) status.textContent = 'Demo';
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
+  else apply();
+}
+
+window.fetch = async (input, init) => {
   const raw = typeof input === 'string' ? input : input?.url || '';
   let url;
   try {
@@ -283,18 +314,21 @@ window.fetch = (input, init) => {
     return nativeFetch(input, init);
   }
   if (!url.pathname.startsWith('/api/')) return nativeFetch(input, init);
-  return handleApi(url, init);
-};
 
-/* Absolute links (e.g. /book written by the page scripts) must become relative
-   on a project Pages URL such as https://user.github.io/repo/. */
-const PAGE_MAP = {
-  '/': 'index.html',
-  '/book': 'book.html',
-  '/booking': 'book.html',
-  '/tickets': 'book.html',
-  '/success': 'success.html',
-  '/admin': 'admin.html'
+  // Already know there is no backend: answer locally without more 404s.
+  if (staticMode) return handleApi(url, init);
+
+  try {
+    const response = await nativeFetch(input, init);
+    const type = response.headers.get('content-type') || '';
+    // A real backend answered: success, or a JSON error (validation, auth…).
+    if (response.ok || type.includes('application/json')) return response;
+  } catch {
+    /* network failure — fall through to the local implementation */
+  }
+
+  enterStaticMode();
+  return handleApi(url, init);
 };
 
 document.addEventListener('click', (event) => {
@@ -311,23 +345,4 @@ document.addEventListener('click', (event) => {
   if (!base) return;
   event.preventDefault();
   location.href = `${base}${url.search}${url.hash}`;
-});
-
-/* The static build cannot take real payments — say so where it matters. */
-document.addEventListener('DOMContentLoaded', () => {
-  const banner = document.getElementById('demoBanner');
-  if (banner) {
-    banner.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-      <div><b>Preview build (GitHub Pages).</b> This is a static demo — card payment is simulated and your
-      registration is stored in this browser only, never sent anywhere. The full version with live Stripe
-      checkout runs on the Node server included in the repository.</div>`;
-  }
-
-  document.querySelectorAll('[data-static-text]').forEach((el) => {
-    el.textContent = el.dataset.staticText;
-  });
-
-  const status = document.getElementById('summaryStatus');
-  if (status) status.textContent = 'Demo';
 });

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Booking confirmed · Albanian Massage Championship 2027</title>
 <meta name="robots" content="noindex" />
-<link rel="icon" href="/assets/brand/logo-badge-96.png" type="image/svg+xml" />
-<link rel="stylesheet" href="/css/site.css" />
+<link rel="icon" href="assets/brand/logo-badge-96.png" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
 
@@ -25,17 +25,17 @@
 
 <header class="nav is-stuck" id="nav" data-stuck="always">
   <div class="nav__inner">
-    <a class="brand" href="/">
-      <img class="brand__logo" src="/assets/brand/logo-badge-96.png" alt="" width="52" height="52" />
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="assets/brand/logo-badge-96.png" alt="" width="52" height="52" />
       <span class="brand__text"><strong>Albanian Massage Championship</strong><span>Tirana 2027</span></span>
     </a>
     <nav class="nav__links" aria-label="Main">
-      <a href="/">Home</a>
-      <a href="/#schedule">Schedule</a>
-      <a href="/#faq">FAQ</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#schedule">Schedule</a>
+      <a href="index.html#faq">FAQ</a>
     </nav>
     <div class="nav__actions">
-      <a class="btn btn--grad btn--sm" href="/book">Book another</a>
+      <a class="btn btn--grad btn--sm" href="book.html">Book another</a>
     </div>
   </div>
 </header>
@@ -94,7 +94,7 @@
             <h2 id="okTitle">You're in!</h2>
             <p id="okText">A confirmation has been sent to your email address.</p>
             <dl class="kv-list" id="kvList"></dl>
-            <a class="btn btn--grad btn--block" href="/">Back to the championship</a>
+            <a class="btn btn--grad btn--block" href="index.html">Back to the championship</a>
           </div>
 
           <div class="panel" style="margin-top:18px">
@@ -122,13 +122,14 @@
   <div class="container footer__inner">
     <div class="footer__bottom" style="border-bottom:0">
       <span>© 2027 Global Manual Therapy. All rights reserved.</span>
-      <span style="display:flex;gap:18px"><a href="/">Home</a><a href="/#faq">FAQ</a><a href="/book">Tickets</a></span>
+      <span style="display:flex;gap:18px"><a href="index.html">Home</a><a href="index.html#faq">FAQ</a><a href="book.html">Tickets</a></span>
     </div>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="/js/main.js" type="module"></script>
-<script src="/js/success.js" type="module"></script>
+<script type="module" src="js/static-api.js"></script>
+<script src="js/main.js" type="module"></script>
+<script src="js/success.js" type="module"></script>
 </body>
 </html>
