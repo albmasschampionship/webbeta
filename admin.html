@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Registrations · AMC 2027 admin</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+<header class="nav is-stuck" id="nav" data-stuck="always" style="position:sticky">
+  <div class="nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">G.M.T.</span>
+      <span class="brand__text"><strong>Global Manual Therapy</strong><span>Admin · Registrations</span></span>
+    </a>
+    <div class="nav__actions" style="display:flex;gap:10px">
+      <a class="btn btn--ghost btn--sm" href="index.html">View site</a>
+    </div>
+  </div>
+</header>
+
+<main class="admin-shell">
+  <div class="container">
+    <div class="admin-bar">
+      <div>
+        <h1 style="font-size:1.5rem">Registrations</h1>
+        <p style="color:var(--muted);font-size:.86rem">Albanian Massage Championship 2027 · live from the booking database</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <input class="input" id="token" type="password" placeholder="Admin token" style="width:200px;padding:10px 14px" />
+        <button class="btn btn--dark btn--sm" id="loginBtn" type="button">Unlock</button>
+        <button class="btn btn--ghost btn--sm" id="csvBtn" type="button" disabled>Export CSV</button>
+        <button class="btn btn--ghost btn--sm" id="refreshBtn" type="button" disabled>Refresh</button>
+      </div>
+    </div>
+
+    <div id="error" hidden class="demo-banner" style="background:#ffeef4;border-color:#ffc2d7;color:#a10b46"></div>
+
+    <div class="admin-stats" id="stats" hidden>
+      <div class="admin-stat"><b id="statTotal">0</b><span>Registrations</span></div>
+      <div class="admin-stat"><b id="statPaid">0</b><span>Paid</span></div>
+      <div class="admin-stat"><b id="statRevenue">€0</b><span>Revenue</span></div>
+      <div class="admin-stat"><b id="statCompetitors">0</b><span>Competitors</span></div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Ref</th><th>Created</th><th>Name</th><th>Email</th><th>Country</th>
+            <th>Pass</th><th>Category</th><th>Total</th><th>Status</th><th>Check-in</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <tr><td colspan="10" style="padding:28px;text-align:center;color:var(--muted)">Enter the admin token to load registrations.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="js/static-api.js"></script>
+<script src="js/main.js" type="module"></script>
+<script src="js/admin.js" type="module"></script>
+</body>
+</html>
